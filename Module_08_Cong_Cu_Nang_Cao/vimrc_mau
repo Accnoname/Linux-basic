@@ -1,6 +1,6 @@
 " vimrc_mau — Cấu hình Vim cơ bản cho người mới học
 " Cách áp dụng:
-"   cp /mnt/d/"Linux basic"/Module_08_Cong_Cu_Nang_Cao/config_mau/vimrc_mau ~/.vimrc
+"   cp /mnt/d/Linux-basic/Module_08_Cong_Cu_Nang_Cao/vimrc_mau ~/.vimrc
 
 " ─── Hiển thị ───
 set number              " Hiện số dòng

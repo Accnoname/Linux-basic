@@ -30,7 +30,7 @@ WSL2 chạy một nhân Linux thực sự bên trong Windows. Bạn có đầy �
 
 ```bash
 # Ví dụ truy cập file Windows từ WSL:
-ls /mnt/d/"Linux basic"
+ls /mnt/d/Linux-basic
 ```
 
 ---

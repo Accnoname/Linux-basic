@@ -1,7 +1,7 @@
 # bashrc_mau — Cấu hình .bashrc được đề xuất cho người học Linux
 #
 # Cách áp dụng:
-#   cat /mnt/d/"Linux basic"/Module_08_Cong_Cu_Nang_Cao/config_mau/bashrc_mau >> ~/.bashrc
+#   cat /mnt/d/Linux-basic/Module_08_Cong_Cu_Nang_Cao/bashrc_mau >> ~/.bashrc
 #   source ~/.bashrc
 #
 # ─────────────────────────────────────────────────────────────────

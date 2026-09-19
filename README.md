@@ -108,7 +108,7 @@ echo "User hiện tại: $USER | Thư mục Home: $HOME"
 ### 3. Truy cập thư mục khóa học từ WSL
 Nếu bạn lưu thư mục này tại ổ `D:` của Windows:
 ```bash
-cd /mnt/d/"Linux basic"
+cd /mnt/d/Linux-basic
 ls -la
 ```
 

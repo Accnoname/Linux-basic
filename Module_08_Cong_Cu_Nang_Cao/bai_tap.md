@@ -87,7 +87,7 @@ ll
 Trong thư mục này đã có sẵn file mẫu `bashrc_mau` và `vimrc_mau`. Bạn có thể tham khảo:
 
 ```bash
-cat /mnt/d/"Linux basic"/Module_08_Cong_Cu_Nang_Cao/vimrc_mau
+cat /mnt/d/Linux-basic/Module_08_Cong_Cu_Nang_Cao/vimrc_mau
 ```
 
 ✅ **Hoàn thành bài tập! Hãy chuyển sang [kiem_tra.md](file:///d:/Linux%20basic/Module_08_Cong_Cu_Nang_Cao/kiem_tra.md) để tự đánh giá bản thân.**

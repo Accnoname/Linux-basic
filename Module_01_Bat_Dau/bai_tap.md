@@ -141,7 +141,7 @@ mkdir --help
 ls /mnt/
 
 # Xem nội dung thư mục học tập trên ổ D của Windows
-ls -l /mnt/d/"Linux basic"
+ls -l /mnt/d/Linux-basic
 ```
 
 ✅ **Bạn đã hoàn thành bài thực hành Module 01! Hãy chuyển sang [kiem_tra.md](file:///d:/Linux%20basic/Module_01_Bat_Dau/kiem_tra.md) để tự đánh giá kiến thức.**
