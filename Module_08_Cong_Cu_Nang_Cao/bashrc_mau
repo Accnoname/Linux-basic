@@ -1,0 +1,154 @@
+# bashrc_mau — Cấu hình .bashrc được đề xuất cho người học Linux
+#
+# Cách áp dụng:
+#   cat /mnt/d/"Linux basic"/Module_08_Cong_Cu_Nang_Cao/config_mau/bashrc_mau >> ~/.bashrc
+#   source ~/.bashrc
+#
+# ─────────────────────────────────────────────────────────────────
+
+# === ALIAS HỮU ÍCH ===
+
+# ls với màu sắc và thông tin
+alias ls='ls --color=auto'
+alias ll='ls -lhF --color=auto'          # Liệt kê chi tiết, kích thước đọc được
+alias la='ls -lhAF --color=auto'         # Kể cả file ẩn
+alias l='ls -CF --color=auto'            # Compact view
+alias lt='ls -lhFt --color=auto'         # Sắp xếp theo thời gian
+alias lS='ls -lhFS --color=auto'         # Sắp xếp theo kích thước
+
+# Di chuyển nhanh
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+# Tìm kiếm với màu sắc
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Hiển thị dung lượng đọc được
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+
+# Xác nhận trước khi xóa/ghi đè
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Mạng
+alias myip='curl -s ifconfig.me && echo'
+alias ports='ss -tlnp'
+alias ping='ping -c 5'
+
+# Hệ thống
+alias top='htop 2>/dev/null || top'
+alias ps='ps auxf'
+alias path='echo $PATH | tr : "\n"'     # Hiện PATH mỗi entry 1 dòng
+alias reload='source ~/.bashrc && echo "✅ bashrc reloaded!"'
+alias edit-rc='${EDITOR:-nano} ~/.bashrc'
+
+# Tiện ích
+alias h='history | grep'                # h <từ> → tìm trong history
+alias cls='clear'
+alias please='sudo'                     # Vui vẻ hơn :)
+
+
+# === HÀM TIỆN ÍCH ===
+
+# mkcd: Tạo thư mục rồi vào luôn
+mkcd() {
+    mkdir -p "$1" && cd "$1" && echo "📁 Đã tạo và vào: $(pwd)"
+}
+
+# extract: Giải nén mọi định dạng
+extract() {
+    if [ -f "$1" ]; then
+        case "$1" in
+            *.tar.bz2)  tar xjf "$1"   ;;
+            *.tar.gz)   tar xzf "$1"   ;;
+            *.tar.xz)   tar xJf "$1"   ;;
+            *.bz2)      bunzip2 "$1"   ;;
+            *.rar)      unrar x "$1"   ;;
+            *.gz)       gunzip "$1"    ;;
+            *.tar)      tar xf "$1"    ;;
+            *.tbz2)     tar xjf "$1"   ;;
+            *.tgz)      tar xzf "$1"   ;;
+            *.zip)      unzip "$1"     ;;
+            *.Z)        uncompress "$1";;
+            *.7z)       7z x "$1"      ;;
+            *)          echo "❌ Không biết giải nén '$1'" ;;
+        esac
+        echo "✅ Đã giải nén: $1"
+    else
+        echo "❌ File '$1' không tồn tại"
+    fi
+}
+
+# up: Nén thư mục/file thành tar.gz
+up() {
+    local name="${1%/}"
+    tar -czf "${name}.tar.gz" "$1" && echo "✅ Đã nén: ${name}.tar.gz"
+}
+
+# ff: Tìm file theo tên
+ff() {
+    find . -type f -name "*$1*" 2>/dev/null
+}
+
+# fdir: Tìm thư mục theo tên
+fdir() {
+    find . -type d -name "*$1*" 2>/dev/null
+}
+
+# gi: Xem nội dung file với grep và số dòng
+gi() {
+    grep -n "$1" "$2"
+}
+
+# ports_used: Xem cổng đang dùng và process
+ports_used() {
+    ss -tlnp | grep LISTEN
+}
+
+# sysinfo: Thông tin hệ thống nhanh
+sysinfo() {
+    echo "═══════ THÔNG TIN HỆ THỐNG ═══════"
+    echo "Hostname  : $(hostname)"
+    echo "OS        : $(grep PRETTY_NAME /etc/os-release | cut -d'"' -f2)"
+    echo "Kernel    : $(uname -r)"
+    echo "Uptime    : $(uptime -p 2>/dev/null || uptime | awk '{print $3}' | sed 's/,//')"
+    echo "User      : $(whoami) (uid=$(id -u))"
+    echo ""
+    echo "═══════ TÀI NGUYÊN ═══════"
+    free -h | grep "^Mem"
+    df -h / | tail -1 | awk '{print "Disk      : " $3 " / " $2 " (" $5 " dùng)"}'
+    echo "Load      : $(cat /proc/loadavg | awk '{print $1, $2, $3}')"
+}
+
+
+# === CẤU HÌNH HISTORY ===
+HISTSIZE=10000                    # Lưu 10000 lệnh trong memory
+HISTFILESIZE=20000                # Lưu 20000 lệnh trong file
+HISTCONTROL=ignoredups:erasedups  # Không lưu lệnh trùng
+HISTTIMEFORMAT="%F %T "           # Hiện thời gian trong history
+shopt -s histappend               # Thêm vào file, không ghi đè
+
+
+# === PROMPT ĐẸP HƠN ===
+# Hiện: user@host:path$
+# Màu: xanh lá nếu user thường, đỏ nếu root
+
+if [ "$(id -u)" -eq 0 ]; then
+    # Root prompt (đỏ)
+    PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]# '
+else
+    # User thường (xanh)
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+fi
+
+
+# === THÔNG BÁO KHI MỞ TERMINAL ===
+echo "🐧 Xin chào, $(whoami)! $(date '+%A, %d/%m/%Y %H:%M')"
+echo "💡 Gõ 'sysinfo' để xem thông tin hệ thống"
