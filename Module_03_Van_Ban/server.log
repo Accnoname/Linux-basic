@@ -1,0 +1,54 @@
+2024-01-15 08:01:23 INFO  [nginx] Server started on port 80
+2024-01-15 08:01:24 INFO  [app] Application initialized successfully
+2024-01-15 08:01:25 INFO  [db] Database connection established: mysql://localhost:3306/myapp
+2024-01-15 08:05:11 INFO  [auth] User 'alice' logged in from 192.168.1.10
+2024-01-15 08:07:44 INFO  [api] GET /api/users - 200 OK - 45ms
+2024-01-15 08:07:55 INFO  [api] POST /api/users - 201 Created - 123ms
+2024-01-15 08:12:03 WARNING [db] Query took too long: 2340ms - SELECT * FROM orders WHERE user_id=42
+2024-01-15 08:15:30 INFO  [auth] User 'bob' logged in from 10.0.0.5
+2024-01-15 08:18:47 ERROR [db] Connection pool exhausted: max=20 current=20
+2024-01-15 08:18:48 ERROR [api] GET /api/orders - 503 Service Unavailable - Database error
+2024-01-15 08:18:49 ERROR [api] POST /api/orders - 503 Service Unavailable - Database error
+2024-01-15 08:19:01 INFO  [db] Connection restored after 13 seconds
+2024-01-15 08:20:14 INFO  [api] GET /api/products - 200 OK - 67ms
+2024-01-15 08:23:55 WARNING [memory] Heap usage: 78% (780MB/1000MB)
+2024-01-15 08:30:00 INFO  [cron] Daily backup job started
+2024-01-15 08:30:45 INFO  [cron] Daily backup completed: 2.3GB saved to /backups/2024-01-15.tar.gz
+2024-01-15 09:02:11 INFO  [auth] User 'charlie' logged in from 172.16.0.3
+2024-01-15 09:15:33 ERROR [auth] Failed login attempt for user 'admin' from 45.123.67.89 (attempt 1/5)
+2024-01-15 09:15:41 ERROR [auth] Failed login attempt for user 'admin' from 45.123.67.89 (attempt 2/5)
+2024-01-15 09:15:49 ERROR [auth] Failed login attempt for user 'admin' from 45.123.67.89 (attempt 3/5)
+2024-01-15 09:15:57 ERROR [auth] Failed login attempt for user 'admin' from 45.123.67.89 (attempt 4/5)
+2024-01-15 09:16:05 ERROR [auth] Failed login attempt for user 'admin' from 45.123.67.89 (attempt 5/5)
+2024-01-15 09:16:05 WARNING [security] IP 45.123.67.89 blocked after 5 failed attempts
+2024-01-15 09:45:22 INFO  [api] GET /api/users/42 - 200 OK - 23ms
+2024-01-15 10:00:00 INFO  [cron] Hourly health check: OK - CPU:45% MEM:62% DISK:34%
+2024-01-15 10:01:15 INFO  [api] DELETE /api/users/99 - 204 No Content - 89ms
+2024-01-15 10:15:44 ERROR [api] PUT /api/products/5 - 500 Internal Server Error - NullPointerException
+2024-01-15 10:15:44 ERROR [app] Unhandled exception in ProductController.update(): java.lang.NullPointerException
+2024-01-15 10:15:44 ERROR [app]     at ProductController.update(ProductController.java:142)
+2024-01-15 10:15:44 ERROR [app]     at RequestDispatcher.dispatch(RequestDispatcher.java:67)
+2024-01-15 10:20:00 INFO  [cron] Hourly health check: OK - CPU:52% MEM:71% DISK:34%
+2024-01-15 10:35:18 INFO  [auth] User 'alice' logged out
+2024-01-15 11:00:00 INFO  [cron] Hourly health check: WARNING - CPU:89% MEM:85% DISK:34%
+2024-01-15 11:00:01 WARNING [system] High CPU usage detected: 89%
+2024-01-15 11:00:01 WARNING [system] High memory usage detected: 85%
+2024-01-15 11:05:33 INFO  [api] GET /api/reports/monthly - 200 OK - 4521ms
+2024-01-15 11:30:44 ERROR [db] Deadlock detected in transaction TXN-8842
+2024-01-15 11:30:44 ERROR [db] Transaction TXN-8842 rolled back
+2024-01-15 12:00:00 INFO  [cron] Hourly health check: OK - CPU:41% MEM:68% DISK:35%
+2024-01-15 12:01:09 INFO  [auth] User 'diana' logged in from 192.168.1.25
+2024-01-15 12:15:22 INFO  [api] GET /api/dashboard - 200 OK - 312ms
+2024-01-15 13:00:00 INFO  [cron] Hourly health check: OK - CPU:38% MEM:66% DISK:35%
+2024-01-15 13:45:51 WARNING [disk] Disk usage crossed 35% threshold on /dev/sda1
+2024-01-15 14:00:00 INFO  [cron] Hourly health check: OK - CPU:44% MEM:69% DISK:36%
+2024-01-15 14:22:37 INFO  [auth] User 'bob' logged out
+2024-01-15 15:00:00 INFO  [cron] Hourly health check: WARNING - CPU:91% MEM:88% DISK:36%
+2024-01-15 15:00:02 WARNING [system] Critical CPU usage: 91%
+2024-01-15 15:00:02 WARNING [system] Critical memory usage: 88%
+2024-01-15 15:03:14 ERROR [api] POST /api/upload - 413 Request Entity Too Large - File size: 52MB
+2024-01-15 16:00:00 INFO  [cron] Hourly health check: OK - CPU:43% MEM:70% DISK:36%
+2024-01-15 17:00:00 INFO  [cron] Hourly health check: OK - CPU:35% MEM:64% DISK:36%
+2024-01-15 17:30:15 INFO  [auth] User 'charlie' logged out
+2024-01-15 18:00:00 INFO  [cron] Hourly health check: OK - CPU:28% MEM:55% DISK:36%
+2024-01-15 23:59:59 INFO  [cron] End of day report generated: 8 users, 1247 requests, 7 errors
