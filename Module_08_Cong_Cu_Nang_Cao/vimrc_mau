@@ -1,0 +1,63 @@
+" vimrc_mau — Cấu hình Vim cơ bản cho người mới học
+" Cách áp dụng:
+"   cp /mnt/d/"Linux basic"/Module_08_Cong_Cu_Nang_Cao/config_mau/vimrc_mau ~/.vimrc
+
+" ─── Hiển thị ───
+set number              " Hiện số dòng
+set relativenumber      " Số dòng tương đối (dễ nhảy dòng)
+set cursorline          " Tô sáng dòng con trỏ
+set showmatch           " Tô sáng dấu ngoặc khớp
+set wrap                " Wrap dòng dài
+set linebreak           " Wrap tại từ (không cắt giữa từ)
+
+" ─── Tìm kiếm ───
+set incsearch           " Tìm kiếm ngay khi gõ
+set hlsearch            " Tô sáng kết quả tìm kiếm
+set ignorecase          " Không phân biệt hoa thường
+set smartcase           " Phân biệt nếu có chữ hoa
+
+" ─── Indent & Tab ───
+set autoindent          " Tự indent dòng mới
+set smartindent         " Indent thông minh hơn
+set tabstop=4           " Tab = 4 khoảng trắng
+set shiftwidth=4        " Indent = 4 khoảng trắng
+set expandtab           " Dùng khoảng trắng thay vì tab
+
+" ─── Giao diện ───
+set ruler               " Hiện vị trí con trỏ (dòng, cột)
+set showcmd             " Hiện lệnh đang gõ
+set wildmenu            " Menu completion đẹp hơn
+set laststatus=2        " Luôn hiện status bar
+syntax on               " Bật syntax highlighting
+
+" ─── Hiệu năng ───
+set lazyredraw          " Không redraw khi chạy macro
+set hidden              " Cho phép chuyển buffer mà không cần lưu
+
+" ─── Phím tắt tùy chỉnh ───
+" Lưu nhanh bằng Ctrl+S (trong Insert và Normal mode)
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+
+" Thoát nhanh bằng Ctrl+Q
+nnoremap <C-q> :q<CR>
+
+" Xóa highlight tìm kiếm bằng Esc
+nnoremap <Esc> :nohlsearch<CR>
+
+" Di chuyển giữa các dòng nhìn thấy (không phải dòng thực)
+nnoremap j gj
+nnoremap k gk
+
+" Jj để thoát Insert mode (thay vì Esc)
+inoremap jj <Esc>
+
+" ─── Ghi nhớ vị trí cursor ───
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+" ─── Thông báo khi mở vim ───
+" Tắt welcome message
+set shortmess+=I
