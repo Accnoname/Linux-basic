@@ -1,0 +1,18 @@
+# OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary & Log files generated during practice
+*.tmp
+tmp/
+scratch/
