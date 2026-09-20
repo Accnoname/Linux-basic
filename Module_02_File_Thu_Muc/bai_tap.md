@@ -166,19 +166,29 @@ Viết lệnh để thực hiện tất cả trong 1 lần:
 6. Đếm số file còn lại trong `/tmp/challenge`
 
 ```bash
-# Viết lệnh của bạn ở đây:
-
+# Lời giải One-Liner (1 dòng duy nhất dùng && và |):
+mkdir -p /tmp/challenge/backup && touch /tmp/challenge/file{1..5}.txt && cp /tmp/challenge/file*.txt /tmp/challenge/backup/ && mv /tmp/challenge/backup/file1.txt /tmp/challenge/backup/important.txt && rm /tmp/challenge/file3.txt && ls /tmp/challenge/*.txt | wc -l
 ```
+
+* **Ghi nhớ từ thực hành:**
+  - `mkdir -p /tmp/challenge/backup`: Tạo tự động cả thư mục cha và thư mục con.
+  - `{1..5}`: Kỹ thuật *Brace Expansion* giúp sinh dãy file tự động không cần gõ thủ công.
+  - `>` vs `>>`: `>` là ghi đè (tạo mới), `>>` là ghi nối đuôi vào cuối file.
+  - `cp` vs `mv`: `cp` là nhân bản giữ file gốc; `mv` là di chuyển và đồng thời dùng để đổi tên file.
+  - `*` vs `?`: `*` khớp bất kỳ chuỗi ký tự nào; `?` khớp đúng 1 ký tự (`???_2024.log` chỉ khớp `app_2024.log`, loại `error_2024.log` vì có 5 ký tự).
+  - `rm -i`: Hỏi xác nhận trước khi xóa file để tránh xóa nhầm (vì Linux xóa là mất vĩnh viễn).
+  - `wc -l` là đếm số dòng trong file (với file rỗng sẽ in ra 0). Muốn đếm số lượng file phải kết hợp đường ống Pipe: `ls *.txt | wc -l`.
+  - `du -sh`: Xem tổng dung lượng thư mục dạng KB, MB dễ đọc (*Disk Usage - Summary Human-readable*).
 
 ---
 
 ## ✅ Checklist
 
-- [ ] Tạo được thư mục lồng nhau với `mkdir -p`
-- [ ] Dùng được `cp`, `mv`, `rm` thành thạo
-- [ ] Biết dùng `head`, `tail`, `cat`, `wc`
-- [ ] Biết dùng `find` để tìm file
-- [ ] Hiểu và dùng được wildcard `*`, `?`, `[]`
-- [ ] Biết cách xóa an toàn với `-i`
+- [x] Tạo được thư mục lồng nhau với `mkdir -p`
+- [x] Dùng được `cp`, `mv`, `rm` thành thạo
+- [x] Biết dùng `head`, `tail`, `cat`, `wc`
+- [x] Biết dùng `find` để tìm file
+- [x] Hiểu và dùng được wildcard `*`, `?`, `[]`
+- [x] Biết cách xóa an toàn với `-i`
 
-👉 Sang [kiem_tra.md](./kiem_tra.md)!
+👉 Hoàn thành Module 02! Sang [kiem_tra.md](./kiem_tra.md) để kiểm tra kiến thức!
