@@ -1,0 +1,10 @@
+2024-01-01 ERROR Database connection failed
+2024-01-01 INFO Server started successfully
+2024-01-02 WARNING Disk space low: 85% used
+2024-01-02 ERROR Null pointer exception in UserService
+2024-01-03 INFO User admin logged in
+2024-01-03 ERROR Failed to send email
+2024-01-04 DEBUG Processing request id=1234
+2024-01-04 INFO Request completed in 250ms
+2024-01-05 ERROR Database connection failed
+2024-01-05 WARNING Memory usage: 90%

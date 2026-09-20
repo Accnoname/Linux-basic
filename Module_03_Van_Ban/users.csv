@@ -1,21 +1,7 @@
-id,ten,tuoi,phong_ban,chuc_vu,luong,thanh_pho,ngay_vao_lam
-1,Nguyen Van An,28,KY THUAT,Software Engineer,18500000,Ha Noi,2021-03-15
-2,Tran Thi Binh,32,QUAN LY,Engineering Manager,42000000,Ho Chi Minh,2019-07-01
-3,Le Van Cuong,24,KY THUAT,Junior Developer,12000000,Da Nang,2023-01-10
-4,Pham Thi Dung,29,THIET KE,UI/UX Designer,22000000,Ha Noi,2020-08-20
-5,Hoang Van Em,35,QUAN LY,Product Manager,38000000,Ho Chi Minh,2018-04-05
-6,Vu Thi Phuong,26,KY THUAT,Backend Developer,20000000,Ha Noi,2022-06-01
-7,Do Van Giang,31,KINH DOANH,Sales Lead,28000000,Ho Chi Minh,2019-11-15
-8,Ngo Thi Ha,27,KY THUAT,DevOps Engineer,25000000,Ha Noi,2021-09-30
-9,Bui Van Hung,40,QUAN LY,CTO,85000000,Ho Chi Minh,2015-01-01
-10,Dang Thi Lan,25,KY THUAT,Frontend Developer,16000000,Da Nang,2023-06-15
-11,Phan Van Minh,33,KINH DOANH,Account Manager,30000000,Ha Noi,2019-03-20
-12,Ly Thi Nam,28,THIET KE,Graphic Designer,18000000,Ho Chi Minh,2021-05-10
-13,Trinh Van Oanh,36,QUAN LY,HR Manager,35000000,Ha Noi,2017-09-01
-14,Mai Thi Phuong,23,KY THUAT,QA Engineer,14000000,Ho Chi Minh,2023-09-01
-15,Cao Van Quang,30,KY THUAT,Data Engineer,27000000,Ha Noi,2020-12-15
-16,Ha Thi Rong,45,QUAN LY,CEO,120000000,Ho Chi Minh,2012-01-01
-17,Vo Van Son,27,KY THUAT,Mobile Developer,21000000,Da Nang,2022-03-01
-18,Doan Thi Thu,29,KINH DOANH,Marketing Specialist,19000000,Ha Noi,2021-01-20
-19,Tang Van Uy,34,KY THUAT,Security Engineer,32000000,Ho Chi Minh,2018-07-10
-20,Nguyen Thi Van,26,THIET KE,Motion Designer,17000000,Ha Noi,2022-11-01
+Alice,25,Engineer,50000
+Bob,30,Manager,75000
+Charlie,22,Intern,30000
+Diana,28,Designer,55000
+Eve,35,Director,90000
+Frank,27,Engineer,52000
+Grace,31,Manager,78000
