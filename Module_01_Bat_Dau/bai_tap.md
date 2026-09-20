@@ -19,7 +19,10 @@ id
 # Xem đường dẫn thư mục bạn đang đứng
 pwd
 ```
-*Tự ghi nhớ*: Thư mục hiện tại có bắt đầu bằng `/home/` không?
+* **Nhật ký thực hành của bạn:**
+  - `whoami`: Trả về `hieu` (tên tài khoản hiện tại).
+  - `id`: Hiển thị `uid=1000(hieu)` (User ID định danh) và `groups` (nhóm quyền, đặc biệt có `sudo` nghĩa là có quyền quản trị máy).
+  - `pwd`: Trả về `/mnt/d/Linux-basic` (thư mục hiện tại bạn đang đứng, trên ổ D của Windows gắn vào WSL).
 
 ### 2. Hệ điều hành và phiên bản Kernel
 ```bash
@@ -32,6 +35,13 @@ uname -r
 # Xem thông tin bản phân phối (Ubuntu / Debian / ...)
 cat /etc/os-release
 ```
+
+* **Nhật ký thực hành & Giải nghĩa chi tiết:**
+  - `uname`: Viết tắt của **Unix Name**.
+  - `uname -a` (cờ `-a` = `--all`): In **toàn bộ** thông tin nhân hệ thống (Tên OS `Linux`, tên máy `DESKTOP-330P1B1`, bản kernel, kiến trúc chip `x86_64`).
+  - `uname -r` (cờ `-r` = `--kernel-release`): Chỉ lọc lấy đúng số phiên bản phát hành của Kernel (`6.6.87.2-microsoft-standard-WSL2`). *Dùng khi cài driver, Docker, hay phần mềm yêu cầu bản kernel tối thiểu*.
+  - `cat /etc/os-release`: Lệnh `cat` (*concatenate*) in nội dung file ra màn hình. File này cho biết thông tin **Bản phân phối (Distro)** ở tầng ứng dụng: **Ubuntu 26.04.1 LTS (Resolute Raccoon)**.
+  - **Sự khác biệt cốt lõi**: `uname` xem tầng **Nhân (Kernel - phần cứng & điều phối)**, còn `/etc/os-release` xem tầng **Bản phân phối (Distro/OS - phần mềm quản lý gói, giao diện)**.
 
 ---
 
