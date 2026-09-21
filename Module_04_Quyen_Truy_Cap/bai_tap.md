@@ -127,4 +127,56 @@ cat /etc/shadow
 sudo cat /etc/shadow | head -5
 ```
 
-✅ **Hoàn thành bài tập! Hãy chuyển sang [kiem_tra.md](file:///d:/Linux%20basic/Module_04_Quyen_Truy_Cap/kiem_tra.md) để đánh giá bản thân.**
+---
+
+## 🎯 Phần 6: Bài Tập Tình Huống Thực Tế — Dự Án Web & Server Security
+
+### Tình huống triển khai dự án Web:
+Cấu hình bảo mật phân quyền cho dự án tại `~/linux_practice/module04/my_project`:
+```bash
+# 1. Script deploy (Owner toàn quyền, người khác chỉ đọc và chạy)
+chmod 755 deploy.sh
+# Hoặc cấp nhanh quyền chạy bằng ký tự:
+chmod +x deploy.sh
+
+# 2. File cấu hình chứa mật khẩu database (.env)
+# Cấm tiệt người khác, chỉ Owner đọc/ghi:
+chmod 600 .env
+
+# 3. File mã nguồn web (index.html)
+# Owner sửa, người khác chỉ xem:
+chmod 644 index.html
+
+# 4. Thư mục ghi log (logs/)
+# Bật Sticky Bit để ai cũng tạo log được nhưng không ai xóa/sửa log của nhau:
+chmod 1777 logs
+# (Hoặc dùng ký tự: chmod +t logs)
+```
+
+---
+
+## 📋 BẢNG TỔNG HỢP KIẾN THỨC CẦN GHI NHỚ
+
+| Mục tiêu | Lệnh số (Octal) | Lệnh ký tự | Ý nghĩa bảo mật |
+| :--- | :---: | :---: | :--- |
+| **File thực thi công khai** | `chmod 755 run.sh` | `chmod +x run.sh` | Chạy được chương trình |
+| **File văn bản thông thường** | `chmod 644 file.txt` | `chmod u=rw,go=r file` | Chuẩn cho web server / doc |
+| **File mật khẩu / Private Key**| `chmod 600 id_rsa` | `chmod go-rwx id_rsa` | Tuyệt mật, cấm người khác |
+| **Thư mục chia sẻ chung** | `chmod 1777 shared/` | `chmod +t shared/` | Sticky bit chống xóa trộm file |
+| **Kế thừa Group cho Team** | `chmod 2775 team/` | `chmod g+s team/` | SGID tự động gán group chung |
+| **Đổi chủ sở hữu** | `sudo chown bob file` | `sudo chown 1001 file` | Bắt buộc dùng sudo để tránh gian lận |
+
+---
+
+## ✅ CHECKLIST HOÀN THÀNH MODULE 04
+
+- [x] Hiểu cấu trúc 10 ký tự quyền Linux (`- rwx rwx rwx`).
+- [x] Nắm vững bảng số Octal (`r=4, w=2, x=1`) và tính nhẩm thành thạo `755`, `644`, `600`.
+- [x] Phân biệt được sự khác biệt sống còn của quyền `x` trên File vs Thư mục.
+- [x] Hiểu bản chất và cách dùng của 3 quyền đặc biệt: **SUID (`4` / `s`)**, **SGID (`2` / `s`)**, **Sticky Bit (`1` / `t`)**.
+- [x] Hiểu cơ chế mặt nạ mặc định `umask` (`022` -> File 644, Dir 755).
+- [x] Nắm vững lý do tại sao lệnh `chown` bắt buộc phải chạy với `sudo`.
+- [x] Hoàn thành bài kiểm tra lý thuyết và tình huống đạt **9.5/10 điểm**!
+
+👉 **Chuyển sang [kiem_tra.md](./kiem_tra.md) để xem lại chi tiết điểm số.**
+
