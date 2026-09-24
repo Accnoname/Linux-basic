@@ -1,0 +1,10 @@
+2024-01-01 08:12:45 [INFO] Hệ thống khởi động thành công
+2024-01-01 09:30:12 [WARNING] Bộ nhớ RAM đạt mức 75%
+2024-01-01 10:15:23 [ERROR] Không thể kết nối cơ sở dữ liệu MySQL: Timeout
+2024-01-01 11:45:00 [ERROR] Thất bại khi gửi email xác thực tài khoản
+2024-01-02 08:00:10 [INFO] Người dùng admin đăng nhập thành công
+2024-01-02 14:22:31 [DEBUG] Nạp cấu hình từ file /etc/app.conf
+2024-01-02 16:50:18 [ERROR] Lỗi phân giải DNS cho endpoint api.payment.vn
+2024-01-03 09:10:05 [INFO] Bắt đầu đồng bộ dữ liệu định kỳ
+2024-01-03 11:05:40 [WARNING] Phản hồi API chậm hơn 2000ms
+2024-01-03 17:30:22 [ERROR] Ổ đĩa phân vùng /var/log đầy 100%
