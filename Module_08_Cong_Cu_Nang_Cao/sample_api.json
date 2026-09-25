@@ -1,0 +1,44 @@
+{
+  "status": "success",
+  "server": {
+    "hostname": "prod-app-01",
+    "ip": "192.168.1.100",
+    "region": "ap-southeast-1",
+    "active": true
+  },
+  "metrics": {
+    "cpu_usage_percent": 42.5,
+    "memory_free_mb": 1536,
+    "uptime_days": 18
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "alice",
+      "role": "admin",
+      "email": "alice@example.com",
+      "departments": ["DevOps", "Security"]
+    },
+    {
+      "id": 2,
+      "username": "bob",
+      "role": "developer",
+      "email": "bob@example.com",
+      "departments": ["Backend", "AI"]
+    },
+    {
+      "id": 3,
+      "username": "charlie",
+      "role": "developer",
+      "email": "charlie@example.com",
+      "departments": ["Frontend"]
+    },
+    {
+      "id": 4,
+      "username": "david",
+      "role": "guest",
+      "email": "david@example.com",
+      "departments": []
+    }
+  ]
+}
